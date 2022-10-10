@@ -68,23 +68,33 @@ embedded_svc.snippetSettingsFile.extraPrechatInfo = [{
 			"isExactMatch":true,
 			"label":"Email"
 		}],
-	},
-	{
-		"entityName":"Case",
-		"showOnCreate": true,
-		"saveToTranscript": "CaseId",
-		"entityFieldMaps": [{
-			"isExactMatch": false,
-			"fieldName": "Subject",
-			"doCreate": true,
-			"doFind": false,
-			"label": "Issue"
-		},
-		{
-			"isExactMatch": false,
-			"fieldName": "Callback_Phone__c",
-			"doCreate": true,
-			"doFind": false,
-			"label": "Callback Phone"
-		}]
 	}];
+
+		embedded_svc.init(
+			'https://frontsteps.my.salesforce.com',
+			'https://frontstepssupport.force.com/premiumsupport',
+			gslbBaseURL,
+			'00D3000000019qR',
+			'Frontsteps_Standard_Chat',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1-ia5.salesforceliveagent.com/content',
+				deploymentId: '5723x000000Cx5M',
+				buttonId: '5733x000000LLZn',
+				baseLiveAgentURL: 'https://d.la1-c1-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'FRONTSTEPS_CHAT',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://frontsteps.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
