@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Fronsteps Chatbot</h1>
-<p>This is a test page for the Frontsteps chatbot!</p>
+<p>This is a test page for the Caliber chatbot!</p>
 
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
@@ -41,47 +41,18 @@
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-embedded_svc.snippetSettingsFile.extraPrechatInfo = [{
-		"entityName": "Contact",
-		"showOnCreate": true,
-		"linkToEntityName": "Case",
-		"linkToEntityField": "ContactId",
-		"saveToTranscript": "ContactId",
-		"entityFieldMaps" : [{
-			"doCreate":true,
-			"doFind":true,
-			"fieldName":"FirstName",
-			"isExactMatch":true,
-			"label":"First Name"
-		},
-		{
-			"doCreate":true,
-			"doFind":true,
-			"fieldName":"LastName",
-			"isExactMatch":true,
-			"label":"Last Name"
-		},
-		{
-			"doCreate":true,
-			"doFind":true,
-			"fieldName":"Email",
-			"isExactMatch":true,
-			"label":"Email"
-		}],
-	}];
-
 		embedded_svc.init(
-			'https://frontsteps.my.salesforce.com',
-			'https://frontstepssupport.force.com/premiumsupport',
+			'https://frontsteps--partialco.sandbox.my.salesforce.com',
+			'https://frontsteps--partialco.sandbox.my.site.com/premiumsupport',
 			gslbBaseURL,
-			'00D3000000019qR',
-			'Frontsteps_Standard_Chat',
+			'00D2C000000DAl0',
+			'Caliber_Standard_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la1-c1-ia5.salesforceliveagent.com/content',
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia5.salesforceliveagent.com/content',
 				deploymentId: '5723x000000Cx5M',
-				buttonId: '5733x000000LLZn',
-				baseLiveAgentURL: 'https://d.la1-c1-ia5.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'FRONTSTEPS_CHAT',
+				buttonId: '5733x000000LLZs',
+				baseLiveAgentURL: 'https://d.la1-c1cs-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Caliber_Chat',
 				isOfflineSupportEnabled: false
 			}
 		);
@@ -89,7 +60,7 @@ embedded_svc.snippetSettingsFile.extraPrechatInfo = [{
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://frontsteps.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://frontsteps--partialco.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
